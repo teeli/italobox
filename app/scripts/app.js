@@ -28,7 +28,7 @@ app.onVideoPlaying = function() {
             document.title = "\u2665 DISCO \u2665 " + data.data.title + " \u2665";
         });
     }
-    $('#player').show();
+    $('#ytcontainer').show();
 }
 
 app.toggleInfo = function() {

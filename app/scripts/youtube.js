@@ -7,7 +7,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubeIframeAPIReady() {
-    app.player = new YT.Player('player', {
+    app.player = new YT.Player('ytplayer', {
         height:     '100%',
         width:      '100%',
         playerVars: {
@@ -19,7 +19,8 @@ function onYouTubeIframeAPIReady() {
             autoplay:       1,
             origin:         'aciddose.org',
             rel:            0,
-            loop:           1
+            loop:           1,
+            wmode:          'transparent'
         },
         events:     {
             'onReady':       onPlayerReady,
