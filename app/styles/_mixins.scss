@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+@mixin ir() {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+/* IE 6/7 fallback */
+  *text-indent: -9999px;
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+  }
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+@mixin hidden() {
+  display: none !important;
+  visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+@mixin visuallyhidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+@mixin invisible() {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+@mixin clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin gradient($color1, $color2) {
+  background-color: $color1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2)); /* Chrome, Safari 4+ */
+  background-image: -webkit-linear-gradient(top, $color1, $color2); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image: -moz-linear-gradient(top, $color1, $color2); /* Firefox 3.6-15 */
+  background-image: -o-linear-gradient(top, $color1, $color2); /* Opera 11.10-12.00 */
+  background-image: linear-gradient(to bottom, $color1, $color2); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+@mixin boxshadow($x, $y, $radius, $spread, $color) {
+  -webkit-box-shadow: $x $y $radius $spread $color; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+  box-shadow: $x $y $radius $spread $color; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}

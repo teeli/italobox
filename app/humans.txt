@@ -1,0 +1,9 @@
+/* TEAM */
+Developer: Teemu Lahti
+Site: http://www.aciddose.org
+Twitter: @teemulahti
+Location: Helsinki, Finland
+
+/* SITE */
+Standards: HTML5, CSS3
+Components: Modernizr, jQuery, etc.
