@@ -39,7 +39,6 @@ a {
   left: 50px;
   bottom: 50px;
   background: rgba(0, 0, 0, 0.5);
-  color: #fff;
   z-index: 3;
   div.title {
     font-weight: bold;
@@ -58,7 +57,6 @@ a {
   position: absolute;
   top: 0;
   right: -235px;
-  color: #fff;
   font-family: 'PT Sans', Arial, sans-serif;
   font-size: 1em;
   z-index: 3;
@@ -66,7 +64,7 @@ a {
   &:hover {
     right: 0;
   }
-  a.toggle {
+  div.icon {
     @include borderbox;
     @include radius(0 0 0 10px);
     position: absolute;
