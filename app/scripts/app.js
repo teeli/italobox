@@ -4,6 +4,7 @@ var app = app || {};
 
 app.nextVideo = function () {
     $('#videoinfo div.title').html('Loading...');
+    document.title = '\u2665 DISCO \u2665';
     if (typeof app.player != 'undefined') {
         app.player.nextVideo();
     }
@@ -24,6 +25,7 @@ app.onVideoPlaying = function() {
     if (typeof params.v != 'undefined') {
         $.getJSON('http://gdata.youtube.com/feeds/api/videos/' + params.v + '?v=2&alt=jsonc', function (data, status, xhr) {
             $('#videoinfo div.title').html(data.data.title);
+            document.title = "\u2665 DISCO \u2665 " + data.data.title + " \u2665";
         });
     }
 }
