@@ -1,10 +1,12 @@
 @import "normalize";
 @import "defaults";
 @import "mixins";
+@import "fonts";
 
 a {
   color: #fff;
   transition: color 100ms linear;
+  text-decoration: none;
   &:hover {
     color: darken(#fff, 10%);
   }
@@ -30,8 +32,8 @@ a {
 
 #videoinfo {
   @include radius(10px);
+  @include borderbox;
   font-family: 'PT Sans Narrow', 'Arial Narrow', Arial, sans-serif;
-  box-sizing: border-box;
   padding: 25px;
   position: absolute;
   left: 50px;
@@ -48,20 +50,48 @@ a {
   a.next {
     display: block;
     font-size: 1em;
-    text-decoration: none;
     text-transform: uppercase;
   }
 }
 
 #authorinfo {
-  @include radius(0 0 0 5px);
   position: absolute;
   top: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px;
+  right: -235px;
   color: #fff;
   font-family: 'PT Sans', Arial, sans-serif;
-  font-size: 0.65em;
+  font-size: 1em;
   z-index: 3;
+  transition: right 250ms ease-in-out;
+  &:hover {
+    right: 0;
+  }
+  a.toggle {
+    @include borderbox;
+    @include radius(0 0 0 10px);
+    position: absolute;
+    left: -55px;
+    padding: 10px;
+    top: 0;
+    display: block;
+    width: 55px;
+    font-size: 24px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  div.content {
+    @include borderbox;
+    @include radius(0 0 0 10px);
+    padding: 5px 25px;
+    width: 235px;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    h1 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+    p {
+      margin: 0 0 1em 0;
+    }
+  }
 }

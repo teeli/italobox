@@ -111,3 +111,9 @@
   -webkit-box-shadow: $x $y $radius $spread $color; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
   box-shadow: $x $y $radius $spread $color; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
 }
+
+@mixin borderbox() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

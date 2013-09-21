@@ -30,10 +30,19 @@ app.onVideoPlaying = function() {
     }
 }
 
+app.toggleInfo = function() {
+    $('#authorinfo div.content').toggleClass('visible');
+}
+
 $(document).ready(function () {
     $('a.next').click(function (e) {
+        e.preventDefault();
         app.nextVideo();
     });
+    $('#authorinfo a.toggle').click(function(e) {
+        e.preventDefault();
+        app.toggleInfo();
+    })
     $(app).on('player:finished', function(e) {
         app.nextVideo();
     })
