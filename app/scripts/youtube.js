@@ -15,7 +15,11 @@ function onYouTubeIframeAPIReady() {
             enablejsapi:    1,
             disablekb:      1,
             modestbranding: 1,
-            showinfo:       0
+            showinfo:       0,
+            autoplay:       1,
+            origin:         'aciddose.org',
+            rel:            0,
+            loop:           1
         },
         events:     {
             'onReady':       onPlayerReady,
@@ -25,8 +29,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    event.target.cuePlaylist({
-        listType:         'plylist',
+    event.target.loadPlaylist({
+        listType:         'playlist',
         list:             'PLZkC7dLwSHbOTPEfjs09LtvKcnIX9LX-P',
         index:            1,
         startSeconds:     0,
