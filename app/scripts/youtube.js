@@ -1,11 +1,54 @@
+'use strict';
+
 var app = app || {}
 
-var tag = document.createElement('script');
+app.youtube = app.youtube || {};
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+/**
+ * Init Youtube iFrame API
+ */
+app.youtube.init = function () {
+    var tag = document.createElement('script');
 
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+/**
+ * Load playlist & play after player is loaded
+ * @param event
+ */
+app.youtube.onPlayerReady = function (event) {
+    event.target.loadPlaylist({
+        listType:         'playlist',
+        list:             'PLZkC7dLwSHbOTPEfjs09LtvKcnIX9LX-P',
+        index:            1,
+        startSeconds:     0,
+        suggestedQuality: 'hd720'
+    });
+    event.target.setShuffle(true);
+    event.target.playVideo();
+    $(app.youtube).trigger('player:ready');
+}
+
+/**
+ * Handle state change & delegate events
+ * @param event
+ */
+app.youtube.onPlayerStateChange = function (event) {
+    console.log('state change', event);
+    if (event.data == YT.PlayerState.ENDED) {
+        $(app.youtube).trigger('player:finished');
+    }
+    if (event.data == YT.PlayerState.PLAYING) {
+        $(app.youtube).trigger('player:playing');
+    }
+}
+
+/**
+ * Called when Youtube iFrame API has been loaded
+ */
 function onYouTubeIframeAPIReady() {
     app.player = new YT.Player('ytplayer', {
         height:     '100%',
@@ -24,31 +67,9 @@ function onYouTubeIframeAPIReady() {
             wmode:          'transparent'
         },
         events:     {
-            'onReady':       onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onReady':       app.youtube.onPlayerReady,
+            'onStateChange': app.youtube.onPlayerStateChange
         }
     });
 }
 
-function onPlayerReady(event) {
-    event.target.loadPlaylist({
-        listType:         'playlist',
-        list:             'PLZkC7dLwSHbOTPEfjs09LtvKcnIX9LX-P',
-        index:            1,
-        startSeconds:     0,
-        suggestedQuality: 'hd720'
-    });
-    event.target.setShuffle(true);
-    event.target.playVideo();
-    $(document).trigger('player:ready');
-}
-
-function onPlayerStateChange(event) {
-    console.log('state change', event);
-    if (event.data == YT.PlayerState.ENDED) {
-        $(app).trigger('player:finished');
-    }
-    if (event.data == YT.PlayerState.PLAYING) {
-        $(app).trigger('player:playing');
-    }
-}

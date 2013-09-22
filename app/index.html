@@ -79,42 +79,44 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
+<div id="container">
+    <div id="videoinfo">
+        <div class="title">Loading...</div>
+        <a href="#" class="next">&rarr; Next</a>
+    </div>
+    <div id="authorinfo">
+        <div class="icon icon-info-circled"></div>
+        <div class="content">
+            <h1>Discorobot</h1>
 
-<div id="videoinfo">
-    <div class="title">Loading...</div>
-    <a href="#" class="next">&rarr; Next</a>
-</div>
-<div id="authorinfo">
-    <div class="icon icon-info-circled"></div>
-    <div class="content">
-        <h1>Discorobot</h1>
+            <p>by <strong><a href="http://twitter.com/teemulahti" target="_blank">@teemulahti</a></strong></p>
 
-        <p>by <strong><a href="http://twitter.com/teemulahti" target="_blank">@teemulahti</a></strong></p>
+            <p>Source code available in
+                <a href="https://github.com/teeli/italobox" class="icon-github" target="_blank">Github</a></p>
 
-        <p>Source code available in
-            <a href="https://github.com/teeli/italobox" class="icon-github" target="_blank">Github</a></p>
+            <p>Probably doesn't work correctly on mobile devices.</p>
 
-        <p>Share the party:<br>
-            <a href="#" class="fb share icon-facebook-rect"></a>
-            <a href="#" class="twitter share icon-twitter-bird"></a>
-            <a href="#" class="gplus share icon-googleplus-rect"></a>
-        </p>
+            <p>Share the party:<br>
+                <a href="#" class="fb share icon-facebook-rect"></a>
+                <a href="#" class="twitter share icon-twitter-bird"></a>
+                <a href="#" class="gplus share icon-googleplus-rect"></a>
+            </p>
+        </div>
+    </div>
+    <div id="cover"></div>
+    <div id="ytcontainer">
+        <div id="ytplayer"></div>
     </div>
 </div>
-<div id="cover"></div>
-<div id="ytcontainer">
-    <div id="ytplayer"></div>
-</div>
-
 <!-- build:js scripts/app.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/jquery.js"></script>
-<script src="scripts/app.js"></script>
 <script src="scripts/youtube.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/main.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
     (function (b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l;
