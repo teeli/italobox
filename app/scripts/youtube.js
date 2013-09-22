@@ -16,6 +16,7 @@ function onYouTubeIframeAPIReady() {
             disablekb:      1,
             modestbranding: 1,
             showinfo:       0,
+            iv_load_policy: 3,
             autoplay:       1,
             origin:         'aciddose.org',
             rel:            0,
